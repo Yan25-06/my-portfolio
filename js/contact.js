@@ -3,15 +3,15 @@
    contact.js — EmailJS form, validation, toast notification
    ============================================================
 
-   SETUP (3 bước):
-   1. Tạo tài khoản miễn phí tại https://www.emailjs.com
-   2. Add Email Service → chọn Gmail → copy SERVICE_ID
+   SETUP (3 steps):
+   1. Create a free account at https://www.emailjs.com
+   2. Add Email Service → select Gmail → copy SERVICE_ID
    3. Create Email Template → copy TEMPLATE_ID
-   4. Vào Account → copy PUBLIC_KEY
-   5. Điền 3 giá trị vào phần CONFIG bên dưới
+   4. Go to Account → copy PUBLIC_KEY
+   5. Fill in 3 values in the CONFIG section below
    ============================================================ */
 
-/* ---------- ⚙️  CẤU HÌNH EMAILJS (chỉnh 3 dòng này) ---------- */
+/* ---------- ⚙️  EMAILJS CONFIGURATION (edit 3 lines) ---------- */
 const EMAILJS_CONFIG = {
   publicKey:  'Z3op78It_rYn-6vnS',    // ← dán Public Key từ EmailJS Account
   serviceId:  'service_logduh9',    // ← dán Service ID (vd: service_abc123)
@@ -64,13 +64,13 @@ function initCharCounter() {
 function validateForm(data) {
   const errors = [];
   if (!data.name.trim() || data.name.trim().length < 2)
-    errors.push('Tên cần ít nhất 2 ký tự.');
+    errors.push('Name must be at least 2 characters.');
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email))
-    errors.push('Email không hợp lệ.');
+    errors.push('Invalid email address.');
   if (!data.subject.trim() || data.subject.trim().length < 4)
-    errors.push('Tiêu đề cần ít nhất 4 ký tự.');
+    errors.push('Subject must be at least 4 characters.');
   if (!data.message.trim() || data.message.trim().length < 20)
-    errors.push('Tin nhắn cần ít nhất 20 ký tự.');
+    errors.push('Message must be at least 20 characters.');
   return errors;
 }
 
@@ -104,10 +104,10 @@ function initContactForm() {
     /* Not configured → fallback to mailto */
     if (!IS_CONFIGURED) {
       const body = encodeURIComponent(
-        `Tên: ${data.name}\nEmail: ${data.email}\n\n${data.message}`
+        `Name: ${data.name}\nEmail: ${data.email}\n\n${data.message}`
       );
       window.location.href = `mailto:huytoan709@gmail.com?subject=${encodeURIComponent(data.subject)}&body=${body}`;
-      showToast('success', 'Mở ứng dụng email...', 'Bạn đang dùng chế độ mailto fallback.');
+      showToast('success', 'Opening email client...', 'You are using mailto fallback mode.');
       return;
     }
 
@@ -127,15 +127,15 @@ function initContactForm() {
 
       form.reset();
       document.getElementById('charCount').textContent = '0 / 1000';
-      showToast('success', 'Email đã được gửi! 🎮', 'Tôi sẽ phản hồi trong 24 giờ.');
+      showToast('success', 'Email sent! 🎮', 'I will reply within 24 hours.');
       status.className = 'form-status success';
-      status.innerHTML = '✓ Gửi thành công! Tôi sẽ phản hồi sớm nhất.';
+      status.innerHTML = '✓ Sent successfully! I will reply as soon as possible.';
 
     } catch (err) {
       console.error('EmailJS error:', err);
-      showToast('error', 'Gửi thất bại', 'Thử lại hoặc liên hệ qua email trực tiếp.');
+      showToast('error', 'Send failed', 'Please try again or contact via email directly.');
       status.className = 'form-status error';
-      status.innerHTML = '✗ Có lỗi xảy ra. Vui lòng thử lại hoặc email trực tiếp.';
+      status.innerHTML = '✗ An error occurred. Please try again or email directly.';
     } finally {
       btn.disabled = false;
       btn.classList.remove('loading');

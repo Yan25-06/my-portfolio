@@ -1,27 +1,38 @@
 /* ============================================================
    PORTFOLIO — Lê Huy Toàn
-   main.js — Theme, cursor, particles, scroll, nav
+   main.js — Theme toggle, cursor, particles, scroll, nav
    ============================================================ */
 
-/* ---------- THEME TOGGLE ---------- */
+/* ---------- THEME TOGGLE ----------
+   NOTE: Theme khởi tạo từ localStorage được xử lý bởi inline
+   script trong <head> của index.html (trước khi render) để tránh
+   flash. File này chỉ lo phần sync icon + gắn sự kiện click.
+   ---------------------------------------------------------------- */
 (function initTheme() {
-  const root    = document.documentElement;
-  const toggle  = document.getElementById('themeToggle');
-  const icon    = document.getElementById('themeIcon');
-  let isDark    = true;
+  const root   = document.documentElement;
+  const toggle = document.getElementById('themeToggle');
+  const icon   = document.getElementById('themeIcon');
 
-  function setTheme(dark) {
-    isDark = dark;
-    root.setAttribute('data-theme', dark ? 'dark' : 'light');
-    icon.textContent = dark ? '☀️' : '🌙';
-    localStorage.setItem('theme', dark ? 'dark' : 'light');
+  function syncIcon() {
+    const isDark = root.getAttribute('data-theme') !== 'light';
+    icon.textContent = isDark ? '☀️' : '🌙';
   }
 
-  const saved = localStorage.getItem('theme');
-  if (saved) setTheme(saved === 'dark');
+  function setTheme(dark) {
+    root.setAttribute('data-theme', dark ? 'dark' : 'light');
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+    syncIcon();
+  }
 
-  toggle.addEventListener('click', () => setTheme(!isDark));
-  icon.addEventListener('click',   () => setTheme(!isDark));
+  // Sync icon với trạng thái đã được set từ <head>
+  syncIcon();
+
+  toggle.addEventListener('click', () => {
+    setTheme(root.getAttribute('data-theme') !== 'light' ? false : true);
+  });
+  icon.addEventListener('click', () => {
+    setTheme(root.getAttribute('data-theme') !== 'light' ? false : true);
+  });
 })();
 
 /* ---------- CUSTOM CURSOR ---------- */
@@ -62,7 +73,7 @@
   if (!container) return;
   const colors = ['#00d4ff', '#39ff14', '#bf5fff'];
   for (let i = 0; i < 40; i++) {
-    const p    = document.createElement('div');
+    const p     = document.createElement('div');
     p.className = 'particle';
     const size  = Math.random() * 3 + 1;
     const x     = Math.random() * 100;
@@ -87,8 +98,8 @@
 
 /* ---------- HAMBURGER NAV ---------- */
 (function initNav() {
-  const ham  = document.getElementById('hamburger');
-  const nav  = document.getElementById('navLinks');
+  const ham = document.getElementById('hamburger');
+  const nav = document.getElementById('navLinks');
   ham.addEventListener('click', () => nav.classList.toggle('open'));
   nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
 })();
