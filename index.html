@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Lê Huy Toàn — Game Developer Intern & Software Engineering Student at VNUHCM-US"/>
   <title>Lê Huy Toàn — Game Developer</title>
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -22,7 +23,7 @@
 </head>
 <body>
 
-<!-- Custom cursor (dark mode only) -->
+<!-- Custom cursor -->
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
@@ -40,7 +41,10 @@
      NAV
      ====================================================== -->
 <nav>
-  <div class="nav-logo">LHT.DEV</div>
+  <div class="nav-logo">
+    <div class="nav-logo">YAN.DEV</div>
+    <!-- <img src="img/logo.png" alt="logo" width="64" height="36"/> -->
+  </div>
   <div class="nav-right">
     <ul class="nav-links" id="navLinks">
       <li><a href="#about"    data-num="01">About</a></li>
@@ -100,8 +104,8 @@
       <div class="about-stats">
         <div class="stat-box"><div class="stat-num">1K+</div><div class="stat-label">Game Plays</div></div>
         <div class="stat-box"><div class="stat-num">3rd</div><div class="stat-label">Year Student</div></div>
-        <div class="stat-box"><div class="stat-num">3+</div><div class="stat-label">Projects</div></div>
-        <div class="stat-box"><div class="stat-num">60+</div><div class="stat-label">FPS Stable</div></div>
+        <div class="stat-box"><div class="stat-num">10+</div><div class="stat-label">Projects</div></div>
+        <div class="stat-box"><div class="stat-num">8.5/10.0</div><div class="stat-label">GPA score</div></div>
       </div>
     </div>
 
@@ -112,7 +116,7 @@
         at <strong>VNUHCM-University of Science</strong>. I am seeking a <strong>Game Developer Intern</strong> position.
         <br/><br/>
         I have experience in building <strong>gameplay systems</strong>, <strong>performance optimization</strong>,
-        and have successfully published playable games with over <strong>1,000+ real users</strong>.
+        and have successfully published playable games with over <strong>1,200+ real users</strong>.
         <br/><br/>
         I possess a strong <strong>problem-solving mindset</strong> and a passion for quickly learning new technologies.
       </p>
@@ -209,7 +213,7 @@
       <div class="project-body">
         <div class="project-title">Flappy Bird Remake</div>
         <p class="project-desc">
-          A playable game published on <a href="https://play.unity.com/en/games/4e1f7963-a8a4-466a-b147-93e52cfccadc/flappy-bird-20" target="_blank" rel="noopener noreferrer">Unity Play</a> achieving over 1,000+ plays. Implemented dynamic obstacle
+          A playable game published on <a href="https://play.unity.com/en/games/4e1f7963-a8a4-466a-b147-93e52cfccadc/flappy-bird-20" target="_blank" rel="noopener noreferrer">Unity Play</a> achieving over 1,200+ plays. Implemented dynamic obstacle
           systems, physics-based movement, and Object Pooling to maintain stable 60+ FPS. Utilized Singleton
           pattern for GameManager and built modular architecture including BirdController, PipeSpawner,
           ScoreManager, and SoundManager.
@@ -232,33 +236,33 @@
     </div>
 
     <!-- Project 2 -->
-    <div class="project-card reveal" style="transition-delay:.1s">
-      <div class="project-img" style="background:linear-gradient(135deg,#0d1117 0%,#1a1a0d 100%);">
-        <span style="font-size:64px;">🤖</span>
-        <div class="project-glow" style="background:radial-gradient(circle at 50% 50%,rgba(255,215,0,0.1),transparent 70%);"></div>
+     <div class="project-card reveal" style="transition-delay:.2s">
+      <div class="project-img" style="background:linear-gradient(135deg,#0d1117 0%,#0d2015 100%);">
+        <span style="font-size:64px;">📱</span>
+        <div class="project-glow" style="background:radial-gradient(circle at 50% 50%,rgba(57,255,20,0.1),transparent 70%);"></div>
         <div class="project-img-overlay"></div>
         <div class="project-num">02</div>
       </div>
       <div class="project-body">
-        <div class="project-title">AI Rush Hour Solver</div>
+        <div class="project-title">MoneyMate</div>
         <p class="project-desc">
-          Designed a modular OOP architecture with abstract solver classes and polymorphic BFS/DFS/UCS/A*
-          algorithms. Built a responsive Streamlit UI for real-time interaction, visualizing pathfinding
-          across multiple AI strategies.
+          Developed a personal finance Android application to effectively track income and expenses.
+          Implemented local data storage and management using SQLite, and designed an intuitive
+          mobile user interface with Java.
         </p>
         <div class="project-tags">
-          <span class="project-tag python">Python</span>
-          <span class="project-tag python">Streamlit</span>
-          <span class="project-tag default">A* / BFS / DFS</span>
+          <span class="project-tag default">Java</span>
+          <span class="project-tag default">Android</span>
+          <span class="project-tag default">SQLite</span>
+          <span class="project-tag default">Mobile App</span>
           <span class="project-tag default">OOP</span>
-          <span class="project-tag default">AI</span>
         </div>
       </div>
       <div class="project-footer">
-        <div class="project-badge" style="color:var(--neon-purple);">
-          <div class="badge-dot" style="background:var(--neon-purple);"></div>AI PATHFINDING
+        <div class="project-badge" style="color:#39ff14;">
+          <div class="badge-dot" style="background:#39ff14;"></div>MOBILE APP
         </div>
-        <a href="#" target="_blank" rel="noopener" class="demo-btn" style="background:#ffd700;color:#000;">
+        <a href="#" target="_blank" rel="noopener" class="demo-btn" style="background:#39ff14;color:#000;">
           <svg viewBox="0 0 16 16"><path d="M6.5 1h3l6 7-6 7h-3l5.5-7z"/><path d="M0 1h3l6 7-6 7H0l5.5-7z"/></svg>
           VIEW DEMO
         </a>
@@ -293,6 +297,40 @@
           <div class="badge-dot" style="background:#61dafb;"></div>FULL-STACK
         </div>
         <a href="#" target="_blank" rel="noopener" class="demo-btn" style="background:#61dafb;color:#000;">
+          <svg viewBox="0 0 16 16"><path d="M6.5 1h3l6 7-6 7h-3l5.5-7z"/><path d="M0 1h3l6 7-6 7H0l5.5-7z"/></svg>
+          VIEW DEMO
+        </a>
+      </div>
+    </div>
+
+    <!-- Project 4 -->
+    <div class="project-card reveal" style="transition-delay:.1s">
+      <div class="project-img" style="background:linear-gradient(135deg,#0d1117 0%,#1a1a0d 100%);">
+        <span style="font-size:64px;">🤖</span>
+        <div class="project-glow" style="background:radial-gradient(circle at 50% 50%,rgba(255,215,0,0.1),transparent 70%);"></div>
+        <div class="project-img-overlay"></div>
+        <div class="project-num">04</div>
+      </div>
+      <div class="project-body">
+        <div class="project-title">AI Rush Hour Solver</div>
+        <p class="project-desc">
+          Designed a modular OOP architecture with abstract solver classes and polymorphic BFS/DFS/UCS/A*
+          algorithms. Built a responsive Streamlit UI for real-time interaction, visualizing pathfinding
+          across multiple AI strategies.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag python">Python</span>
+          <span class="project-tag python">Streamlit</span>
+          <span class="project-tag default">A* / BFS / DFS</span>
+          <span class="project-tag default">OOP</span>
+          <span class="project-tag default">AI</span>
+        </div>
+      </div>
+      <div class="project-footer">
+        <div class="project-badge" style="color:var(--neon-purple);">
+          <div class="badge-dot" style="background:var(--neon-purple);"></div>AI PATHFINDING
+        </div>
+        <a href="#" target="_blank" rel="noopener" class="demo-btn" style="background:#ffd700;color:#000;">
           <svg viewBox="0 0 16 16"><path d="M6.5 1h3l6 7-6 7h-3l5.5-7z"/><path d="M0 1h3l6 7-6 7H0l5.5-7z"/></svg>
           VIEW DEMO
         </a>
@@ -404,7 +442,7 @@
      FOOTER
      ====================================================== -->
 <footer>
-  <div class="footer-logo">LHT.DEV</div>
+  <div class="footer-logo">YAN.DEV</div>
   <div class="footer-copy">© 2025 Lê Huy Toàn — Game Developer Intern</div>
 </footer>
 
